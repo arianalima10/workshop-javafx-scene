@@ -13,8 +13,8 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNumber1" layoutX="14.0" layoutY="90.0" promptText="First Number" />
-      <TextField fx:id="txtNumber2" layoutX="15.0" layoutY="138.0" promptText="Second Number" />
+      <TextField fx:id="txtNumber1" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="90.0" promptText="First Number" />
+      <TextField fx:id="txtNumber2" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="138.0" promptText="Second Number" />
       <Button fx:id="btnSum" layoutX="15.0" layoutY="181.0" mnemonicParsing="false" onAction="#onBtnSumClick" text="Sum" />
       <Label layoutX="14.0" layoutY="228.0" prefHeight="18.0" prefWidth="54.0" text="Result =" />
       <Label fx:id="labelResult" layoutX="68.0" layoutY="229.0" />
