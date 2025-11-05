@@ -1,51 +1,33 @@
+
 package gui;
 
 import java.net.URL;
-import java.util.Locale;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import gui.util.Alerts;
-import gui.util.Constraints;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
+import model.entities.Person;
 
 public class ViewController implements Initializable {
 
 	@FXML
-	private TextField txtNumber1;
+	private ComboBox<Person> comboBoxPerson;
 	
-	@FXML
-	private TextField txtNumber2;
+	private ObservableList<Person> obsList;
 	
-	@FXML
-	private Label labelResult;
-	
-	@FXML
-	private Button btnSum;
-	
-	@FXML
-	public void onBtnSumClick() {
-		try {
-			Locale.setDefault(Locale.US);
-			double height = Double.parseDouble(txtNumber1.getText());
-			double width = Double.parseDouble(txtNumber2.getText());
-			double sum = height + width;
-			labelResult.setText(String.format("%.2f", sum));
-		}
-		catch (NumberFormatException e) {
-			Alerts.showAlert("Error", "Parse error", e.getMessage(), AlertType.ERROR);
-		}
-	}
-
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		Constraints.setTextFieldDouble(txtNumber1);
-		Constraints.setTextFieldMaxLength(txtNumber1, 14);
-		Constraints.setTextFieldDouble(txtNumber2);
-		Constraints.setTextFieldMaxLength(txtNumber2, 14);
+		List<Person> list = new ArrayList<>();
+		list.add(new Person(1, "Maria", "maria@gmail.com"));
+		list.add(new Person(2, "Alex", "alex@gmail.com"));
+		list.add(new Person(3, "Box", "bob@gmail.com"));
+		
+		obsList = FXCollections.observableArrayList(list);
+		comboBoxPerson.setItems(obsList);
 	}
 }
